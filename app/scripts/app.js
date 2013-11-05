@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('openboxApp', [])
-  .config(function ($routeProvider) {
+angular.module('openbox', ['facebook'])
+  .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -10,4 +10,8 @@ angular.module('openboxApp', [])
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }]);
+
+angular.module('openbox').config(['FacebookProvider', function(FacebookProvider){
+        FacebookProvider.init('174230196091494');
+   }]);
